@@ -20,7 +20,7 @@
  */
 
 /**
- * Iways\PaypalInstalmentsBanners\Model\System\Config\Source\Banner\Color
+ * Iways\PaypalInstalmentsBanners\Model\System\Config\Source\Banner\Ratio
  *
  * @category Models
  * @package  Magento
@@ -33,14 +33,12 @@ namespace Iways\PaypalInstalmentsBanners\Model\System\Config\Source\Banner;
 
 use Magento\Framework\Option\ArrayInterface;
 
-class Color implements ArrayInterface
+class Ratio implements ArrayInterface
 {
-    const NO_BANNER = 0,
-          COLOR_WHITE = 'white',
-          //COLOR_WHITE_NO_BORDER = 'white-no-border',
-          COLOR_GRAY = 'gray',
-          COLOR_BLUE = 'blue',
-          COLOR_BLACK = 'black';
+    const RATIO_1X1 = '1x1',
+          RATIO_1X4 = '1x4',
+          RATIO_8X1 = '8x1',
+          RATIO_20X1 = '20x1';
 
     /**
      * Translated configuration options
@@ -50,11 +48,10 @@ class Color implements ArrayInterface
     public function toArray()
     {
         return [
-            self::NO_BANNER => __('none'),
-            self::COLOR_WHITE => __('white'),
-            self::COLOR_GRAY => __('gray'),
-            self::COLOR_BLUE => __('blue'), // default, see etc/config.xml
-            self::COLOR_BLACK => __('black')
+            self::RATIO_1X1 => '1x1', // default, see etc/config.xml
+            self::RATIO_1X4 => '1x4',
+            self::RATIO_8X1 => '8x1',
+            self::RATIO_20X1 => '20x1'
         ];
     }
 

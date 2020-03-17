@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+	<widget id="iways_paypalinstalmentsbanners"
+            class="Iways\PaypalInstalmentsBanners\Block\Widget\Banner"
+            placeholder_image="Iways_PaypalInstalmentsBanners::images/icon_32x32.png">
+        <label>PayPal Instalments Banner</label>
+        <description>Customizable Banner Widget</description>
+        <parameters>
+            <parameter name="banner_color"
+                       xsi:type="select"
+                       required="true">
+                <label translate="false">Color</label>
+                <options>
+                    <option name="white" value="white">
+                        <label translate="true">white</label>
+                    </option>
+                    <option name="grey" value="grey">
+                        <label translate="true">grey</label>
+                    </option>
+                    <option name="blue" value="blue" selected="true">
+                        <label translate="true">blue</label>
+                    </option>
+                    <option name="black" value="black">
+                        <label translate="true">black</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="banner_ratio"
+                       xsi:type="select"
+                       required="true"
+                       source_model="Iways\PaypalInstalmentsBanners\Model\System\Config\Source\Banner\Ratio">
+                <label translate="false">Ratio</label>
+                <value>1x1</value>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
