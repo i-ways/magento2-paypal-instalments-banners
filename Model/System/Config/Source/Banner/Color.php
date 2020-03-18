@@ -33,7 +33,8 @@ namespace Iways\PaypalInstalmentsBanners\Model\System\Config\Source\Banner;
 
 use Magento\Framework\Option\ArrayInterface;
 
-class Color implements ArrayInterface
+class Color
+implements ArrayInterface
 {
     const NO_BANNER = 0,
           COLOR_WHITE = 'white',

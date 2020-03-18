@@ -9,8 +9,9 @@
         <parameters>
             <parameter name="banner_color"
                        xsi:type="select"
+                       visible="true"
                        required="true">
-                <label translate="false">Color</label>
+                <label translate="true">Color</label>
                 <options>
                     <option name="white" value="white">
                         <label translate="true">white</label>
@@ -28,10 +29,10 @@
             </parameter>
             <parameter name="banner_ratio"
                        xsi:type="select"
+                       visible="true"
                        required="true"
                        source_model="Iways\PaypalInstalmentsBanners\Model\System\Config\Source\Banner\Ratio">
-                <label translate="false">Ratio</label>
-                <value>1x1</value>
+                <label translate="true">Ratio</label>
             </parameter>
         </parameters>
     </widget>

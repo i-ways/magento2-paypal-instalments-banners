@@ -33,9 +33,47 @@ namespace Iways\PaypalInstalmentsBanners\Block\Widget;
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
 
-class Banner extends Template implements BlockInterface
+class Banner
+extends Template
+implements BlockInterface
 {
+    const DEFAULT_LAYOUT = 'flex',
+          DEFAULT_COLOR = 'blue',
+          DEFAULT_RATIO = '1x1';
+
     protected $_template = "widget/banner.phtml";
+
+    protected function _construct()
+    {
+        $this->setData('unique_id', 'ipib_' . md5(time() . microtime()));
+
+        if (!$this->getData('banner_layout')) {
+            $this->setData('banner_layout', self::DEFAULT_LAYOUT);
+        }
+
+        if (!$this->getData('banner_color')) {
+            $this->setData('banner_color', self::DEFAULT_COLOR);
+        }
+
+        if (!$this->getData('banner_ratio')) {
+            $this->setData('banner_ratio', self::DEFAULT_RATIO);
+        }
+
+        parent::_construct();
+    }
+
+    protected function _beforeToHtml()
+    {
+        $this->setData('unique_id', 'ipib_' . $this->getNameInLayout());
+
+        return $this;
+    }
+
+    //public function addData(array $arr) {var_dump($arr);}
+    /*public function setData($key, $value = null)
+    {
+        var_dump($key, $value);
+    }*/
 
     //protected $activeSocialNetworks;
     //protected $blockTitle;
@@ -43,11 +81,11 @@ class Banner extends Template implements BlockInterface
 
     //protected $socialLinksHelper;
 
-    public function __construct(
-        Context $context,
+    //public function __construct(
+        //Context $context,
         //\Iways\SocialLinks\Helper\Data $socialLinksHelper,
-        array $data = []
-    ) {
+        //array $data = []
+    //) {
         /*$this->store = $context->getStoreManager()->getStore();
 
         $this->socialLinksHelper = $socialLinksHelper;
@@ -69,8 +107,8 @@ class Banner extends Template implements BlockInterface
             $this->activeSocialNetworks = explode(",", $config);
         }*/
 
-        parent::__construct($context, $data);
-    }
+        //parent::__construct($context, $data);
+    //}
 
     /*public function getBlockTitle()
     {
