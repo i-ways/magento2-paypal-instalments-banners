@@ -19,23 +19,23 @@
  * @link     https://www.i-ways.net
  */
 
+namespace Iways\PaypalInstalmentsBanners\Block\Widget;
+
+use Magento\Checkout\Model\Cart;
+//use Magento\Checkout\Model\Session;
+use Magento\Framework\Registry;
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Element\Template\Context;
+use Magento\Widget\Block\BlockInterface;
+
 /**
  * Iways\PaypalInstalmentsBanners\Block\Widget\Banner
  *
- * @category Blocks
- * @package  Magento
  * @author   Bertozzi Matteo <bertozzi@i-ways.net>
  * @license  http://opensource.org/licenses/osl-3.0.php Open Software License 3.0
  * @link     https://www.i-ways.net
  */
-namespace Iways\PaypalInstalmentsBanners\Block\Widget;
-
-use Magento\Framework\View\Element\Template;
-use Magento\Widget\Block\BlockInterface;
-
-class Banner
-extends Template
-implements BlockInterface
+class Banner extends Template implements BlockInterface
 {
     const DEFAULT_LAYOUT = 'flex',
           DEFAULT_COLOR = 'blue',
@@ -43,10 +43,32 @@ implements BlockInterface
 
     protected $_template = "widget/banner.phtml";
 
+    /**
+     * PayPal Instalments Banner class constructor
+     *
+     * @return void
+     */
+    public function __construct(
+        Cart $cart,
+        Context $context,
+        Registry $registry,
+        //Session $session,
+        array $data = []
+    ) {
+        $this->_cart = $cart;
+        $this->_registry = $registry;
+        //$this->_session = $session;
+
+        parent::__construct($context, $data);
+    }
+
+    /**
+     * PayPal Instalments Banner HTML constructor
+     *
+     * @return void
+     */
     protected function _construct()
     {
-        $this->setData('unique_id', 'ipib_' . md5(time() . microtime()));
-
         if (!$this->getData('banner_layout')) {
             $this->setData('banner_layout', self::DEFAULT_LAYOUT);
         }
@@ -59,83 +81,30 @@ implements BlockInterface
             $this->setData('banner_ratio', self::DEFAULT_RATIO);
         }
 
+        $bannerAmount = 0;
+
+        if ($currentQuote = $this->_cart->getQuote()) {
+            $bannerAmount += $currentQuote->getGrandTotal();
+        }
+
+        if ($currentProduct = $this->_registry->registry('product')) {
+            $bannerAmount += $currentProduct->getFinalPrice();
+        }
+
+        $this->setData('banner_amount', number_format($bannerAmount, 2, ".", ''));
+
         parent::_construct();
     }
 
+    /**
+     * PayPal Instalments Banner HTML additional data
+     *
+     * @return Magento\Framework\View\Element\Template
+     */
     protected function _beforeToHtml()
     {
         $this->setData('unique_id', 'ipib_' . $this->getNameInLayout());
 
         return $this;
     }
-
-    //public function addData(array $arr) {var_dump($arr);}
-    /*public function setData($key, $value = null)
-    {
-        var_dump($key, $value);
-    }*/
-
-    //protected $activeSocialNetworks;
-    //protected $blockTitle;
-    //protected $linkAspect;
-
-    //protected $socialLinksHelper;
-
-    //public function __construct(
-        //Context $context,
-        //\Iways\SocialLinks\Helper\Data $socialLinksHelper,
-        //array $data = []
-    //) {
-        /*$this->store = $context->getStoreManager()->getStore();
-
-        $this->socialLinksHelper = $socialLinksHelper;
-
-        if ($this->linkAspect === null) {
-
-            $this->linkAspect = $this->socialLinksHelper->getConfig('iways_sociallinks/frontend/link_aspect', $this->store->getCode());
-        }
-
-        if ($this->blockTitle === null) {
-
-            $this->blockTitle = $this->socialLinksHelper->getConfig('iways_sociallinks/frontend/block_title', $this->store->getCode());
-        }
-
-        if ($this->activeSocialNetworks === null) {
-
-            $config = $this->socialLinksHelper->getConfig('iways_sociallinks/social_networks/active_links', $this->store->getCode());
-
-            $this->activeSocialNetworks = explode(",", $config);
-        }*/
-
-        //parent::__construct($context, $data);
-    //}
-
-    /*public function getBlockTitle()
-    {
-        return $this->blockTitle;
-    }
-
-    public function getSocialLinks() // assumes active font-awesome support on frontend
-    {
-        $data = [];
-
-        foreach ($this->activeSocialNetworks as $key) {
-
-            if ($url = $this->socialLinksHelper->getConfig('iways_sociallinks/social_networks/' . $key . '_url', $this->store->getCode())) {
-
-                $name = \Iways\SocialLinks\Helper\Data::$socialNetworks[$key];
-
-                $label = $this->linkAspect == 'icons'
-                        ? '<i class="fa fa-' . $key . '" title="' . $name . '"></i>'
-                                : $name;
-
-                $data[$key] = [
-                                'label' => $label,
-                                'url' => $url,
-                ];
-            }
-        }
-
-        return $data;
-    }*/
 }

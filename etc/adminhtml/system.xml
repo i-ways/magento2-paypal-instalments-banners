@@ -101,8 +101,7 @@
         		       showInWebsite="1"
                        showInStore="0">
                     <label>PayPal Instalments Banners</label>
-                    <resource>Iways_PaypalInstalmentsBanners::config</resource>
-	                    <field id="show_on_product_page"
+                    <field id="show_on_product_page"
 	                       translate="label"
 	                       type="select"
 	                       sortOrder="100"

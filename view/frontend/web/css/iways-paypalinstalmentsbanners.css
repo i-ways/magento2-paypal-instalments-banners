@@ -1,0 +1,9 @@
+div.paypal-instalments-logo,
+div.paypal-instalments-logo * {
+	max-width: 200px;
+}
+
+div.ipib > span {
+	margin: auto;
+	max-width: none;
+}

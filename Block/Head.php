@@ -19,38 +19,45 @@
  * @link     https://www.i-ways.net
  */
 
-namespace Iways\PaypalInstalmentsBanners\Helper;
+namespace Iways\PaypalInstalmentsBanners\Block;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Framework\App\Helper\AbstractHelper;
-use Magento\Framework\App\Helper\Context;
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Element\Template\Context;
 use Magento\Store\Model\ScopeInterface;
+use Magento\Widget\Block\BlockInterface;
 
-/**
- * Iways\PaypalInstalmentsBanners\Helper\Data
- *
- * @author   Bertozzi Matteo <bertozzi@i-ways.net>
- * @license  http://opensource.org/licenses/osl-3.0.php Open Software License 3.0
- * @link     https://www.i-ways.net
- */
-class Data extends AbstractHelper
+class Head extends Template implements BlockInterface
 {
+    const SDK_URL = 'https://www.paypal.com/sdk/js';
+
+    /**
+     * PayPal Instalments Banner class constructor
+     *
+     * @return void
+     */
     public function __construct(
         Context $context,
-        ScopeConfigInterface $config
-    ){
+        ScopeConfigInterface $config,
+        array $data = []
+    ) {
         $this->_config = $config;
 
-        parent::__construct($context);
+        parent::__construct($context, $data);
     }
 
     /**
-     * Returns banner_color value for module's 'show_on_footer' configuration
+     * PayPal SDK for Instalments Banner
      *
      * @return string
      */
-    public function getShowOnFooterFromConfig()
+    protected function _toHtml()
     {
-        return $this->_config->getValue('iways_paypalinstalmentsbanners/show_on_footer/banner_color', ScopeInterface::SCOPE_STORE);
+        $scriptUrl = self::SDK_URL
+                   . '?client-id=' . $this->_config->getValue('iways_paypalplus/api/client_id', ScopeInterface::SCOPE_STORE)
+                   . '&currency=' . $this->_storeManager->getStore()->getCurrentCurrency()->getCode()
+                   . '&components=messages';
+
+        return '<script src="' . $scriptUrl . '"></script>';
     }
 }

@@ -33,8 +33,14 @@ namespace Iways\PaypalInstalmentsBanners\Model\System\Config\Source\Banner;
 
 use Magento\Framework\Option\ArrayInterface;
 
-class Ratio
-implements ArrayInterface
+/**
+ * Iways\PaypalInstalmentsBanners\Model\System\Config\Source\Banner\Ratio
+ *
+ * @author   Bertozzi Matteo <bertozzi@i-ways.net>
+ * @license  http://opensource.org/licenses/osl-3.0.php Open Software License 3.0
+ * @link     https://www.i-ways.net
+ */
+class Ratio implements ArrayInterface
 {
     const RATIO_1X1 = '1x1',
           RATIO_1X4 = '1x4',
