@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+	    <referenceContainer name="product.info.form.content">
+	    	<block class="Iways\PaypalInstalmentsBanners\Block\Widget\Banner"
+        	       name="iways-paypalinstalmentsbanners-block-widget-banner-show-on-product-page"
+        	       after="-"
+        	       ifconfig="iways_paypalinstalmentsbanners/show_on_product_page/banner_color">
+        		<arguments>
+        			<argument name="banner_color" xsi:type="helper"
+        			          helper="Iways\PaypalInstalmentsBanners\Helper\Data::getShowOnProductPageFromConfig"></argument>
+        			<argument name="banner_ratio" xsi:type="string">8x1</argument>
+        		</arguments>
+        	</block>
+	    </referenceContainer>
+	</body>
+</page>

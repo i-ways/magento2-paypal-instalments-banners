@@ -44,7 +44,7 @@
                        showInDefault="1"
                        showInWebsite="1"
                        showInStore="0">
-                    <label>Show on product detail page</label>
+                    <label>Show on product page</label>
                     <config_path>iways_paypalinstalmentsbanners/show_on_product_page/banner_color</config_path>
                     <source_model>Iways\PaypalInstalmentsBanners\Model\System\Config\Source\Banner\Color</source_model>
                 </field>
@@ -108,7 +108,7 @@
 	                       showInDefault="1"
 	                       showInWebsite="1"
 	                       showInStore="0">
-	                    <label>Show on product detail page</label>
+	                    <label>Show on product page</label>
 	                    <config_path>iways_paypalinstalmentsbanners/show_on_product_page/banner_color</config_path>
 	                    <source_model>Iways\PaypalInstalmentsBanners\Model\System\Config\Source\Banner\Color</source_model>
 	                </field>

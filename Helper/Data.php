@@ -38,10 +38,36 @@ class Data extends AbstractHelper
     public function __construct(
         Context $context,
         ScopeConfigInterface $config
-    ){
+    ) {
         $this->_config = $config;
 
         parent::__construct($context);
+    }
+
+    /**
+     * Returns banner_color value for module's 'show_on_cart_page' configuration
+     *
+     * @return string
+     */
+    public function getShowOnCartPageFromConfig()
+    {
+        return $this->_config->getValue(
+            'iways_paypalinstalmentsbanners/show_on_cart_page/banner_color',
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * Returns banner_color value for module's 'show_on_checkout' configuration
+     *
+     * @return string
+     */
+    public function getShowOnCheckoutFromConfig()
+    {
+        return $this->_config->getValue(
+            'iways_paypalinstalmentsbanners/show_on_checkout/banner_color',
+            ScopeInterface::SCOPE_STORE
+        );
     }
 
     /**
@@ -51,6 +77,22 @@ class Data extends AbstractHelper
      */
     public function getShowOnFooterFromConfig()
     {
-        return $this->_config->getValue('iways_paypalinstalmentsbanners/show_on_footer/banner_color', ScopeInterface::SCOPE_STORE);
+        return $this->_config->getValue(
+            'iways_paypalinstalmentsbanners/show_on_footer/banner_color',
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * Returns banner_color value for module's 'show_on_product_page' configuration
+     *
+     * @return string
+     */
+    public function getShowOnProductPageFromConfig()
+    {
+        return $this->_config->getValue(
+            'iways_paypalinstalmentsbanners/show_on_product_page/banner_color',
+            ScopeInterface::SCOPE_STORE
+        );
     }
 }

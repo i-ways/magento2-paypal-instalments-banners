@@ -43,6 +43,11 @@ class Head extends Template implements BlockInterface
     ) {
         $this->_config = $config;
 
+        $this->_clientId = $this->_config->getValue(
+            'iways_paypalplus/api/client_id',
+            ScopeInterface::SCOPE_STORE
+        );
+
         parent::__construct($context, $data);
     }
 
@@ -54,7 +59,7 @@ class Head extends Template implements BlockInterface
     protected function _toHtml()
     {
         $scriptUrl = self::SDK_URL
-                   . '?client-id=' . $this->_config->getValue('iways_paypalplus/api/client_id', ScopeInterface::SCOPE_STORE)
+                   . '?client-id=' . $this->_clientId
                    . '&currency=' . $this->_storeManager->getStore()->getCurrentCurrency()->getCode()
                    . '&components=messages';
 
