@@ -29,12 +29,20 @@ use Magento\Store\Model\ScopeInterface;
 /**
  * Iways\PaypalInstalmentsBanners\Helper\Data
  *
- * @author   Bertozzi Matteo <bertozzi@i-ways.net>
- * @license  http://opensource.org/licenses/osl-3.0.php Open Software License 3.0
- * @link     https://www.i-ways.net
+ * @author  Bertozzi Matteo <bertozzi@i-ways.net>
+ * @license http://opensource.org/licenses/osl-3.0.php Open Software License 3.0
+ * @link    https://www.i-ways.net
  */
 class Data extends AbstractHelper
 {
+    /**
+     * PayPal Instalments Banner class constructor
+     *
+     * @param $context Magento\Framework\View\Element\Template\Context
+     * @param $config  Magento\Framework\App\Config\ScopeConfigInterface
+     *
+     * @return void
+     */
     public function __construct(
         Context $context,
         ScopeConfigInterface $config

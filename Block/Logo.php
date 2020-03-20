@@ -21,63 +21,60 @@
 
 namespace Iways\PaypalInstalmentsBanners\Block;
 
-use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\Locale\Resolver;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
-use Magento\Store\Model\ScopeInterface;
 use Magento\Widget\Block\BlockInterface;
 
 /**
- * Iways\PaypalInstalmentsBanners\Block\Head
+ * Iways\PaypalInstalmentsBanners\Block\Logo
  *
  * @author  Bertozzi Matteo <bertozzi@i-ways.net>
  * @license http://opensource.org/licenses/osl-3.0.php Open Software License 3.0
  * @link    https://www.i-ways.net
  */
-class Head extends Template implements BlockInterface
+class Logo extends Template implements BlockInterface
 {
-    const SDK_URL = 'https://www.paypal.com/sdk/js';
+    const TARGET_URL_DE = 'https://www.paypal.com/de/webapps/mpp/paypal-instalments',
+          TARGET_URL_EN_US = 'https://www.paypal.com/us/webapps/mpp/paypal-credit',
+          IMAGE_URL_EN_US = 'https://www.paypalobjects.com/webstatic/en_US/i/buttons'
+                          . '/PP_credit_logo_h_200x51.png';
 
     /**
      * PayPal Instalments Banner class constructor
      *
      * @param $context Magento\Framework\View\Element\Template\Context
-     * @param $config  Magento\Framework\App\Config\ScopeConfigInterface
+     * @param $locale  Magento\Framework\Locale\Resolver
      * @param $data    array
      *
      * @return void
      */
     public function __construct(
         Context $context,
-        ScopeConfigInterface $config,
+        Resolver $locale,
         array $data = []
     ) {
-        $this->_config = $config;
-
-        $this->_clientId = $this->_config->getValue(
-            'iways_paypalplus/api/client_id',
-            ScopeInterface::SCOPE_STORE
-        );
+        $this->_locale = $locale;
 
         parent::__construct($context, $data);
     }
 
     /**
-     * PayPal SDK for Instalments Banner
+     * PayPal Instalments Banner logo information
      *
      * @return string
      */
     protected function _toHtml()
     {
-        $store = $this->_storeManager->getStore();
+        $localeCode = $this->_locale->getLocale();
 
-        $currencyCode = $store->getCurrentCurrency()->getCode();
+        if ($localeCode == 'de_DE') {
+            $this->setData('target_url', self::TARGET_URL_DE);
+        } else {
+            $this->setData('target_url', self::TARGET_URL_EN_US);
+            $this->setData('logo_image', self::IMAGE_URL_EN_US);
+        }
 
-        $scriptUrl = self::SDK_URL
-                   . '?client-id=' . $this->_clientId
-                   . '&currency=' . $currencyCode
-                   . '&components=messages';
-
-        return '<script src="' . $scriptUrl . '"></script>';
+        return parent::_toHtml();
     }
 }

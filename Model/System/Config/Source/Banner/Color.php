@@ -36,9 +36,9 @@ use Magento\Framework\Option\ArrayInterface;
 /**
  * Iways\PaypalInstalmentsBanners\Model\System\Config\Source\Banner\Color
  *
- * @author   Bertozzi Matteo <bertozzi@i-ways.net>
- * @license  http://opensource.org/licenses/osl-3.0.php Open Software License 3.0
- * @link     https://www.i-ways.net
+ * @author  Bertozzi Matteo <bertozzi@i-ways.net>
+ * @license http://opensource.org/licenses/osl-3.0.php Open Software License 3.0
+ * @link    https://www.i-ways.net
  */
 class Color implements ArrayInterface
 {

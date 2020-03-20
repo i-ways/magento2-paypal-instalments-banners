@@ -22,7 +22,6 @@
 namespace Iways\PaypalInstalmentsBanners\Block\Widget;
 
 use Magento\Checkout\Model\Cart;
-//use Magento\Checkout\Model\Session;
 use Magento\Framework\Registry;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
@@ -31,9 +30,9 @@ use Magento\Widget\Block\BlockInterface;
 /**
  * Iways\PaypalInstalmentsBanners\Block\Widget\Banner
  *
- * @author   Bertozzi Matteo <bertozzi@i-ways.net>
- * @license  http://opensource.org/licenses/osl-3.0.php Open Software License 3.0
- * @link     https://www.i-ways.net
+ * @author  Bertozzi Matteo <bertozzi@i-ways.net>
+ * @license http://opensource.org/licenses/osl-3.0.php Open Software License 3.0
+ * @link    https://www.i-ways.net
  */
 class Banner extends Template implements BlockInterface
 {
@@ -46,18 +45,21 @@ class Banner extends Template implements BlockInterface
     /**
      * PayPal Instalments Banner class constructor
      *
+     * @param $cart     Magento\Checkout\Model\Cart
+     * @param $context  Magento\Framework\View\Element\Template\Context
+     * @param $registry Magento\Framework\Registry
+     * @param $data     array
+     *
      * @return void
      */
     public function __construct(
         Cart $cart,
         Context $context,
         Registry $registry,
-        //Session $session,
         array $data = []
     ) {
         $this->_cart = $cart;
         $this->_registry = $registry;
-        //$this->_session = $session;
 
         parent::__construct($context, $data);
     }
