@@ -19,16 +19,6 @@
  * @link     https://www.i-ways.net
  */
 
-/**
- * Iways\PaypalInstalmentsBanners\Model\System\Config\Source\Banner\Ratio
- *
- * @category Models
- * @package  Magento
- * @author   Bertozzi Matteo <bertozzi@i-ways.net>
- * @license  http://opensource.org/licenses/osl-3.0.php Open Software License 3.0
- * @link     https://www.i-ways.net
- */
-
 namespace Iways\PaypalInstalmentsBanners\Model\System\Config\Source\Banner;
 
 use Magento\Framework\Option\ArrayInterface;
