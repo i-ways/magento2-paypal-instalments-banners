@@ -21,6 +21,7 @@
 
 namespace Iways\PaypalInstalmentsBanners\Model;
 
+use Iways\PaypalInstalmentsBanners\Block\Widget\Banner;
 use Iways\PaypalInstalmentsBanners\Helper\Data;
 use Magento\Checkout\Model\ConfigProviderInterface;
 use Magento\Framework\View\LayoutInterface;
@@ -59,9 +60,7 @@ class ConfigProvider implements ConfigProviderInterface
      */
     public function getConfig()
     {
-        $class = Iways\PaypalInstalmentsBanners\Block\Widget\Banner::class;
-        $block = $this->_layout->createBlock($class);
-
+        $block = $this->_layout->createBlock(Banner::class);
         $name = 'iways-paypalinstalmentsbanners-widget-banner-show-on-checkout';
         $html = $block->setNameInLayout($name)
             ->setData('banner_ratio', '8x1')
