@@ -36,6 +36,14 @@ class ConfigProvider implements ConfigProviderInterface
 {
     protected $_layout;
 
+    /**
+     * PayPal Instalments Banner class constructor
+     *
+     * @param $helper Iways\PaypalInstalmentsBanners\Helper\Data
+     * @param $layout Magento\Framework\View\LayoutInterface
+     *
+     * @return void
+     */
     public function __construct(
         Data $helper,
         LayoutInterface $layout
@@ -44,11 +52,21 @@ class ConfigProvider implements ConfigProviderInterface
         $this->_layout = $layout;
     }
 
+    /**
+     * Returns banner_html code as configuration array for knockout.js
+     *
+     * @return array
+     */
     public function getConfig()
     {
-        $block = $this->_layout->createBlock('Iways\PaypalInstalmentsBanners\Block\Widget\Banner');
+        $class = Iways\PaypalInstalmentsBanners\Block\Widget\Banner::class;
+        $block = $this->_layout->createBlock($class);
 
-        $html = $block->setNameInLayout('iways-paypalinstalmentsbanners-widget-banner-show-on-checkout')->setData('banner_ratio', '8x1')->setData('banner_color', $this->_helper->getShowOnCheckoutFromConfig())->toHtml();
+        $name = 'iways-paypalinstalmentsbanners-widget-banner-show-on-checkout';
+        $html = $block->setNameInLayout($name)
+            ->setData('banner_ratio', '8x1')
+            ->setData('banner_color', $this->_helper->getShowOnCheckoutFromConfig())
+            ->toHtml();
 
         return [
             'banner_html' => $html
