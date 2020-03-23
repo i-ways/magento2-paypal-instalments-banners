@@ -2,7 +2,10 @@
     "name": "iwaysgmbh/module-paypal-instalments-banners",
     "description": "PayPal Instalments Banners for Magento 2",
     "repositories": [
-        { "type": "composer", "url": "https://packagist.org" }
+        {
+        	"type": "composer",
+        	"url": "https://packagist.org"
+        }
     ],
     "require": {
         "php": "~7.1.0|~7.2.0"
@@ -21,7 +24,9 @@
         "OSL-3.0"
     ],
     "autoload": {
-        "files": [ "registration.php" ],
+        "files": [
+        	"registration.php"
+        ],
         "psr-4": {
             "Iways\\PaypalInstalmentsBanners\\": ""
         }
