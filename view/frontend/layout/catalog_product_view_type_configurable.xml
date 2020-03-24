@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="Iways_PaypalInstalmentsBanners::js/iways-paypalinstalmentsbanners.js" />
+    </head>
     <body>
-	    <referenceContainer name="product.info.form.content">
+    	<referenceContainer name="product.info.options.wrapper.bottom">
 	    	<block class="Iways\PaypalInstalmentsBanners\Block\Widget\Banner"
         	       name="iways-paypalinstalmentsbanners-block-widget-banner-show-on-product-page"
         	       after="-"

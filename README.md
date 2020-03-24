@@ -37,6 +37,9 @@
 │   └── frontend
 │       ├── layout
 │       │   ├── catalog_product_view.xml
+│       │   ├── catalog_product_view_type_bundle.xml
+│       │   ├── catalog_product_view_type_configurable.xml
+│       │   ├── catalog_product_view_type_downloadable.xml
 │       │   ├── checkout_cart_index.xml
 │       │   ├── checkout_index_index.xml
 │       │   └── default.xml
@@ -55,12 +58,14 @@
 │           │   ├── logo_original.png
 │           │   └── paypal_logo.png
 │           ├── js
-│           │   └── view
-│           │       └── banner.js
+│           │   ├── view
+│           │   │   └── banner.js
+│           │   └── iways-paypalinstalmentsbanners.js
 │           └── template
 │               └── widget
 │                   └── banner.html
 ├── README.md
 ├── composer.json
+├── iways_paypalinstalmentsbanners-1.0.0.zip
 └── registration.php
 ```

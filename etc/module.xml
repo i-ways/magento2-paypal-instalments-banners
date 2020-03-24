@@ -4,7 +4,10 @@
     <module name="Iways_PaypalInstalmentsBanners"
             setup_version="1.0.0">
         <sequence>
+        	<module name="Magento_Bundle" />
         	<module name="Magento_Checkout" />
+        	<module name="Magento_ConfigurableProduct" />
+        	<module name="Magento_Downloadable" />
             <module name="Magento_Paypal" />
             <module name="Magento_Widget" />
         </sequence>

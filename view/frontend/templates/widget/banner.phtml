@@ -2,5 +2,8 @@
      data-pp-style-layout="<?= $block->escapeHtml($block->getData('banner_layout')) ?>"
      data-pp-style-ratio="<?= $block->escapeHtml($block->getData('banner_ratio')) ?>"
      data-pp-style-color="<?= $block->escapeHtml($block->getData('banner_color')) ?>"
-     data-pp-amount="<?= $block->escapeHtml($block->getData('banner_amount')) ?>"></div>
-<script>paypal.Messages().render('#<?= $block->escapeHtml($block->getData('unique_id')) ?>');</script>
+     data-pp-amount="<?= $block->escapeHtml($block->getData('banner_amount')) ?>"
+     data-cart-amount="<?= $block->escapeHtml($block->getData('cart_amount')) ?>"></div>
+<script>
+    paypal.Messages().render('#<?= $block->escapeHtml($block->getData('unique_id')) ?>');
+</script>

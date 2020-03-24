@@ -86,7 +86,8 @@ class Banner extends Template implements BlockInterface
         $bannerAmount = 0;
 
         if ($currentQuote = $this->_cart->getQuote()) {
-            $bannerAmount += $currentQuote->getGrandTotal();
+            $grandTotal = $currentQuote->getGrandTotal();
+            $bannerAmount += $grandTotal;
         }
 
         if ($currentProduct = $this->_registry->registry('product')) {
@@ -94,6 +95,7 @@ class Banner extends Template implements BlockInterface
         }
 
         $this->setData('banner_amount', number_format($bannerAmount, 2, ".", ''));
+        $this->setData('cart_amount', number_format($grandTotal, 2, ".", ''));
 
         parent::_construct();
     }

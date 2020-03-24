@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-	    <referenceContainer name="product.info.form.content">
+	    <referenceContainer name="bundle.summary">
 	    	<block class="Iways\PaypalInstalmentsBanners\Block\Widget\Banner"
         	       name="iways-paypalinstalmentsbanners-block-widget-banner-show-on-product-page"
         	       after="-"
