@@ -13,7 +13,7 @@
                 <banner_color>blue</banner_color>
             </show_on_checkout>
             <show_on_footer>
-                <banner_color>blue</banner_color>
+                <banner_color>white</banner_color>
             </show_on_footer>
         </iways_paypalinstalmentsbanners>
         <iways_paypalplus>

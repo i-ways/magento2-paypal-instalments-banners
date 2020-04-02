@@ -55,6 +55,7 @@
 │           │   └── iways-paypalinstalmentsbanners.css
 │           ├── images
 │           │   ├── logo.png
+│           │   ├── logo_hq.png
 │           │   ├── logo_original.png
 │           │   └── paypal_logo.png
 │           ├── js
