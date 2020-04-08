@@ -1,0 +1,2 @@
+==== 1.0.0 ====
+PayPal Instalments Banner Configuration Module
