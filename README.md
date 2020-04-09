@@ -66,7 +66,8 @@
 │               └── widget
 │                   └── banner.html
 ├── README.md
+├── RELEASE_NOTES.txt
 ├── composer.json
-├── iways_paypalinstalmentsbanners-1.0.0.zip
+├── iways_paypal-instalments-banners-1.0.0.zip
 └── registration.php
 ```
