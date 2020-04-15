@@ -1,4 +1,70 @@
-# Magento 2 PaypalInstalmentsBanner module
+# Magento 2 PayPal Instalments Banners
+
+PayPal Instalments Banners is a solution where PayPal offers your customers the possibility to calculate instalments as individual payment option on every activated shop page. This option is perfect for higher priced items.
+
+Customers aren’t able to proceed any payment through does banners.
+
+
+## Requirements
+
+- Magento Community Edition v2.3.2 or newer
+- PHP v7.2.0 or newer
+- PayPal Merchant Credentials
+
+
+## Installation
+
+In order to install this module with composer, please edit or create “repositories” entry in composer.json file:
+
+```
+{
+	"repositories": [
+		{
+			"url": "git@github.com:i-ways/magento2-paypal-instalments-banners",
+			"type": "git"
+		}
+	]
+}
+```
+
+Then add following line to “require” entry in the same file:
+
+```
+{
+	"require": {
+		"iways/module-paypal-instalments-banners": “~1.0.0”
+	}
+}
+```
+
+or let composer do it for you with command “composer require iways/module-paypal-instalments-banners”.
+
+
+Now enable the module using Magento 2 CLI from your application root:
+
+```
+bin/magento module:enable --clear-static-content Iways_PaypalInstalmentsBanners
+```
+
+In order to initialize database updates please run following command afterwards:
+
+```
+bin/magento setup:upgrade
+```
+
+Depending on your Magento 2 installation setup, you may want to run following additional command:
+
+```
+bin/magento setup:di:compile
+```
+
+
+At this point Paypal Instalments Banners modul should be installed, correctly enabled with default configuration and ready to use.
+You may have to still enter a valid PayPal Merchant Client ID in Magento’s Administration Panel, save configuration and flush your Magento’s cache in order to see banners being rendered on frontend.
+See configuration options under Stores / Configuration / PAYPAL / Instalments Banners, possible values for each area are none (no rendering), white, gray, blue and black.
+
+
+## Filesystem
 
 ```
 .
@@ -71,3 +137,8 @@
 ├── iways_paypal-instalments-banners-1.0.0.zip
 └── registration.php
 ```
+
+
+## Issues
+
+Please use our Servicedesk at https://support.i-ways.net/hc/de
