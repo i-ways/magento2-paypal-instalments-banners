@@ -23,6 +23,7 @@
         	<block class="Iways\PaypalInstalmentsBanners\Block\Logo"
         	       name="iways-paypalinstalmentsbanners-block-logo"
         	       template="Iways_PaypalInstalmentsBanners::logo.phtml"
+				   ifconfig="iways_paypalplus/api/client_id"
         	       after="-" />
         </referenceContainer>
 	</body>
