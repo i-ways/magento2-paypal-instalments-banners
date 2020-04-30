@@ -134,7 +134,6 @@ See configuration options under Stores / Configuration / PAYPAL / Instalments Ba
 ├── README.md
 ├── RELEASE_NOTES.txt
 ├── composer.json
-├── iways_paypal-instalments-banners-1.0.0.zip
 └── registration.php
 ```
 
