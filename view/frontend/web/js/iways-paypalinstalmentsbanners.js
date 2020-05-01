@@ -1,7 +1,8 @@
 require(
     [
         'jquery'
-    ], function ($) {
+    ],
+    function ($) {
         var bannerContainers = $('div.ipib'),
             finalPriceContainer = $('.product-info-price .price-box .price-container.price-final_price');
         function getFinalPrice()

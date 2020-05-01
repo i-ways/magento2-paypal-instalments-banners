@@ -25,6 +25,7 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Store\Model\ScopeInterface;
+use Magento\Store\Model\StoreManagerInterface;
 
 /**
  * Iways\PaypalInstalmentsBanners\Helper\Data
@@ -35,21 +36,50 @@ use Magento\Store\Model\ScopeInterface;
  */
 class Data extends AbstractHelper
 {
+    const SDK_URL = 'https://www.paypal.com/sdk/js';
+
     /**
      * PayPal Instalments Banner class constructor
      *
-     * @param $context Magento\Framework\View\Element\Template\Context
-     * @param $config  Magento\Framework\App\Config\ScopeConfigInterface
+     * @param $context      Magento\Framework\View\Element\Template\Context
+     * @param $config       Magento\Framework\App\Config\ScopeConfigInterface
+     * @param $storeManager Magento\Store\Model\StoreManagerInterface
      *
      * @return void
      */
     public function __construct(
         Context $context,
-        ScopeConfigInterface $config
+        ScopeConfigInterface $config,
+        StoreManagerInterface $storeManager
     ) {
         $this->_config = $config;
+        $this->_storeManager = $storeManager;
 
         parent::__construct($context);
+    }
+    
+    /**
+     * Calculates banner messages SDK url
+     *
+     * @return string
+     */
+    public function getSdkUrl()
+    {
+        $clientId = $this->_config->getValue(
+            'iways_paypalplus/api/client_id',
+            ScopeInterface::SCOPE_STORE
+        );
+        
+        $store = $this->_storeManager->getStore();
+
+        $currencyCode = $store->getCurrentCurrency()->getCode();
+        
+        $scriptUrl = self::SDK_URL
+                   . '?client-id=' . $clientId
+                   . '&currency=' . $currencyCode
+                   . '&components=messages';
+        
+        return $scriptUrl;
     }
 
     /**

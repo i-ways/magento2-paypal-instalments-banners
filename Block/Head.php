@@ -21,10 +21,9 @@
 
 namespace Iways\PaypalInstalmentsBanners\Block;
 
-use Magento\Framework\App\Config\ScopeConfigInterface;
+use Iways\PaypalInstalmentsBanners\Helper\Data;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
-use Magento\Store\Model\ScopeInterface;
 use Magento\Widget\Block\BlockInterface;
 
 /**
@@ -36,28 +35,21 @@ use Magento\Widget\Block\BlockInterface;
  */
 class Head extends Template implements BlockInterface
 {
-    const SDK_URL = 'https://www.paypal.com/sdk/js';
-
     /**
      * PayPal Instalments Banner class constructor
      *
      * @param $context Magento\Framework\View\Element\Template\Context
-     * @param $config  Magento\Framework\App\Config\ScopeConfigInterface
+     * @param $helper  Iways\PaypalInstalmentsBanners\Helper\Data
      * @param $data    array
      *
      * @return void
      */
     public function __construct(
         Context $context,
-        ScopeConfigInterface $config,
+        Data $helper,
         array $data = []
     ) {
-        $this->_config = $config;
-
-        $this->_clientId = $this->_config->getValue(
-            'iways_paypalplus/api/client_id',
-            ScopeInterface::SCOPE_STORE
-        );
+        $this->_helper = $helper;
 
         parent::__construct($context, $data);
     }
@@ -69,15 +61,6 @@ class Head extends Template implements BlockInterface
      */
     protected function _toHtml()
     {
-        $store = $this->_storeManager->getStore();
-
-        $currencyCode = $store->getCurrentCurrency()->getCode();
-
-        $scriptUrl = self::SDK_URL
-                   . '?client-id=' . $this->_clientId
-                   . '&currency=' . $currencyCode
-                   . '&components=messages';
-
-        return '<script src="' . $scriptUrl . '"></script>';
+        return '<script src="' . $this->_helper->getSdkUrl() . '"></script>';
     }
 }
