@@ -3,6 +3,7 @@
 "blue","blau"
 "Configuration","Konfiguration"
 "gray","grau"
+"In order to get your REST API OAuth client ID follow please <a href=""https://developer.paypal.com/docs/api/overview/#get-credentials"" target=""_blank"">this instructions</a>","Folgen Sie bitte <a href=""https://developer.paypal.com/docs/api/overview/#get-credentials"" target=""_blank"">diese Anweisungen</a>, um Ihre OAuth-Client-ID für die REST-API zu erhalten"
 "none","nein"
 "PayPal Credit","PayPal Ratenzahlung"
 "PayPal Instalments Banners","PayPal Ratenzahlung Banner"

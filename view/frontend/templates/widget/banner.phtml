@@ -5,5 +5,7 @@
      data-pp-amount="<?= $block->escapeHtml($block->getData('banner_amount')) ?>"
      data-cart-amount="<?= $block->escapeHtml($block->getData('cart_amount')) ?>"></div>
 <script>
-    paypal.Messages().render('#<?= $block->escapeHtml($block->getData('unique_id')) ?>');
+	if (typeof paypal !== 'undefined') {
+    	paypal.Messages().render('#<?= $block->escapeHtml($block->getData('unique_id')) ?>');
+	}
 </script>

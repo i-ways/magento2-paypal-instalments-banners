@@ -7,7 +7,8 @@
     <body>
 	    <referenceBlock name="head.additional">
 	        <block class="Iways\PaypalInstalmentsBanners\Block\Head"
-	               name="iways-paypalinstalmentsbanners-block-head" />
+	               name="iways-paypalinstalmentsbanners-block-head"
+				   ifconfig="iways_paypalplus/api/client_id" />
 	    </referenceBlock>
 	    <referenceContainer name="footer">
         	<block class="Iways\PaypalInstalmentsBanners\Block\Widget\Banner"
