@@ -36,6 +36,10 @@ use Magento\Framework\Message\ManagerInterface;
  */
 class Validate implements ObserverInterface
 {
+    protected $_curl; // phpcs:ignore PSR2.Classes.PropertyDeclaration
+    protected $_helper; // phpcs:ignore PSR2.Classes.PropertyDeclaration
+    protected $_messageManager; // phpcs:ignore PSR2.Classes.PropertyDeclaration
+
     /**
      * PayPal Instalments Banner class constructor
      *
@@ -50,11 +54,11 @@ class Validate implements ObserverInterface
         Curl $curl,
         ManagerInterface $messageManager
     ) {
-        $this->_helper = $helper;
         $this->_curl = $curl;
+        $this->_helper = $helper;
         $this->_messageManager = $messageManager;
     }
-    
+
     /**
      * Returns banner_html code as configuration array for knockout.js
      *
@@ -65,7 +69,7 @@ class Validate implements ObserverInterface
     public function execute(Observer $observer)
     {
         $this->_curl->get($this->_helper->getSdkUrl());
-        
+
         $response = $this->_curl->getBody();
 
         if (substr($response, 0, 10) !== "!function(") {

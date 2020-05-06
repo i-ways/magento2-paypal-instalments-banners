@@ -40,7 +40,9 @@ class Banner extends Template implements BlockInterface
           DEFAULT_COLOR = 'blue',
           DEFAULT_RATIO = '1x1';
 
-    protected $_template = "widget/banner.phtml";
+    protected $_cart; // phpcs:ignore PSR2.Classes.PropertyDeclaration
+    protected $_registry; // phpcs:ignore PSR2.Classes.PropertyDeclaration
+    protected $_template; // phpcs:ignore PSR2.Classes.PropertyDeclaration
 
     /**
      * PayPal Instalments Banner class constructor
@@ -60,6 +62,7 @@ class Banner extends Template implements BlockInterface
     ) {
         $this->_cart = $cart;
         $this->_registry = $registry;
+        $this->_template = "widget/banner.phtml";
 
         parent::__construct($context, $data);
     }
@@ -69,7 +72,7 @@ class Banner extends Template implements BlockInterface
      *
      * @return void
      */
-    protected function _construct()
+    protected function _construct() // phpcs:ignore PSR2.Methods.MethodDeclaration
     {
         if (!$this->getData('banner_layout')) {
             $this->setData('banner_layout', self::DEFAULT_LAYOUT);
@@ -105,7 +108,7 @@ class Banner extends Template implements BlockInterface
      *
      * @return Magento\Framework\View\Element\Template
      */
-    protected function _beforeToHtml()
+    protected function _beforeToHtml() // phpcs:ignore PSR2.Methods.MethodDeclaration
     {
         $this->setData('unique_id', 'ipib_' . $this->getNameInLayout());
 

@@ -38,6 +38,9 @@ class Data extends AbstractHelper
 {
     const SDK_URL = 'https://www.paypal.com/sdk/js';
 
+    protected $_config; // phpcs:ignore PSR2.Classes.PropertyDeclaration
+    protected $_storeManager; // phpcs:ignore PSR2.Classes.PropertyDeclaration
+
     /**
      * PayPal Instalments Banner class constructor
      *
@@ -48,8 +51,8 @@ class Data extends AbstractHelper
      * @return void
      */
     public function __construct(
-        Context $context,
         ScopeConfigInterface $config,
+        Context $context,
         StoreManagerInterface $storeManager
     ) {
         $this->_config = $config;
@@ -57,7 +60,7 @@ class Data extends AbstractHelper
 
         parent::__construct($context);
     }
-    
+
     /**
      * Calculates banner messages SDK url
      *
@@ -69,16 +72,16 @@ class Data extends AbstractHelper
             'iways_paypalplus/api/client_id',
             ScopeInterface::SCOPE_STORE
         );
-        
+
         $store = $this->_storeManager->getStore();
 
         $currencyCode = $store->getCurrentCurrency()->getCode();
-        
+
         $scriptUrl = self::SDK_URL
                    . '?client-id=' . $clientId
                    . '&currency=' . $currencyCode
                    . '&components=messages';
-        
+
         return $scriptUrl;
     }
 

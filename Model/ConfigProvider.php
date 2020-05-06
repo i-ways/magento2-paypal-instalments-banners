@@ -35,7 +35,8 @@ use Magento\Framework\View\LayoutInterface;
  */
 class ConfigProvider implements ConfigProviderInterface
 {
-    protected $_layout;
+    protected $_helper; // phpcs:ignore PSR2.Classes.PropertyDeclaration
+    protected $_layout; // phpcs:ignore PSR2.Classes.PropertyDeclaration
 
     /**
      * PayPal Instalments Banner class constructor

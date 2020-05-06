@@ -36,11 +36,18 @@ use Magento\Widget\Block\BlockInterface;
 class Head extends Template implements BlockInterface
 {
     /**
+     * Protected $_helper
+     *
+     * @var Iways\PaypalInstalmentsBanners\Helper\Data
+     */
+    protected $_helper; // phpcs:ignore PSR2.Classes.PropertyDeclaration
+
+    /**
      * PayPal Instalments Banner class constructor
      *
-     * @param $context Magento\Framework\View\Element\Template\Context
-     * @param $helper  Iways\PaypalInstalmentsBanners\Helper\Data
-     * @param $data    array
+     * @param Magento\Framework\View\Element\Template\Context $context
+     * @param Iways\PaypalInstalmentsBanners\Helper\Data      $helper
+     * @param array                                           $data
      *
      * @return void
      */
@@ -59,7 +66,7 @@ class Head extends Template implements BlockInterface
      *
      * @return string
      */
-    protected function _toHtml()
+    protected function _toHtml() // phpcs:ignore PSR2.Methods.MethodDeclaration
     {
         return '<script src="' . $this->_helper->getSdkUrl() . '"></script>';
     }

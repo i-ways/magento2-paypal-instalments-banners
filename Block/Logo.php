@@ -39,6 +39,8 @@ class Logo extends Template implements BlockInterface
           TARGET_URL_EN_US = 'https://www.paypal.com/us/webapps/mpp/paypal-credit',
           IMAGE_URL_EN_US = 'https://www.paypalobjects.com/webstatic/en_US/i/buttons'
                           . '/PP_credit_logo_h_200x51.png';
+    
+    protected $_locale; // phpcs:ignore PSR2.Classes.PropertyDeclaration
 
     /**
      * PayPal Instalments Banner class constructor
@@ -64,7 +66,7 @@ class Logo extends Template implements BlockInterface
      *
      * @return string
      */
-    protected function _toHtml()
+    protected function _toHtml() // phpcs:ignore PSR2.Methods.MethodDeclaration
     {
         $localeCode = $this->_locale->getLocale();
 
