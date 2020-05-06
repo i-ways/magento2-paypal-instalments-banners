@@ -83,8 +83,16 @@ See configuration options under Stores / Configuration / PAYPAL / Instalments Ba
 │   │               ├── Color.php
 │   │               └── Ratio.php
 │   └── ConfigProvider.php
+├── Observer
+│   └── Admin
+│       └── System
+│           └── Config
+│               └── Changed
+│                   └── Section
+│                       └── Validate.php
 ├── etc
 │   ├── adminhtml
+│   │   ├── events.xml
 │   │   └── system.xml
 │   ├── frontend
 │   │   └── di.xml
@@ -110,9 +118,6 @@ See configuration options under Stores / Configuration / PAYPAL / Instalments Ba
 │       │   ├── checkout_index_index.xml
 │       │   └── default.xml
 │       ├── templates
-│       │   ├── magento-checkout
-│       │   │   └── cart
-│       │   │       └── form.phtml
 │       │   ├── widget
 │       │   │   └── banner.phtml
 │       │   └── logo.phtml

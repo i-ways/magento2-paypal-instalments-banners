@@ -2,21 +2,18 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-	    <referenceBlock name="checkout.cart.form">
-            <action method="setTemplate">
-                <argument name="template" xsi:type="string">Iways_PaypalInstalmentsBanners::magento-checkout/cart/form.phtml</argument>
-            </action>
+	    <referenceContainer name="checkout.cart.container">
             <block class="Iways\PaypalInstalmentsBanners\Block\Widget\Banner"
         	       name="iways-paypalinstalmentsbanners-block-widget-banner-show-on-cart-page"
-        	       after="-"
+        	       after="checkout.cart.form"
         	       ifconfig="iways_paypalinstalmentsbanners/show_on_cart_page/banner_color">
         		<arguments>
+        			<argument name="extra_class" xsi:type="string">form-cart</argument>
         			<argument name="banner_color" xsi:type="helper"
         			          helper="Iways\PaypalInstalmentsBanners\Helper\Data::getShowOnCartPageFromConfig"></argument>
         			<argument name="banner_ratio" xsi:type="string">8x1</argument>
         		</arguments>
         	</block>
-        </referenceBlock>
-        <!--<referenceBlock name="iways-paypalinstalmentsbanners-block-widget-banner-show-on-footer" remove="true" />-->
-	</body>
+        </referenceContainer>
+    </body>
 </page>

@@ -17,6 +17,5 @@
         		</arguments>
         	</block>
 	    </referenceContainer>
-	    <!--<referenceBlock name="iways-paypalinstalmentsbanners-block-widget-banner-show-on-footer" remove="true" />-->
 	</body>
 </page>
