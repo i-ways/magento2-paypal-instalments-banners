@@ -1,7 +1,6 @@
 # Magento 2 PayPal Instalments Banners
 
 PayPal Instalments Banners is a solution where PayPal offers your customers the possibility to calculate instalments as individual payment option on every activated shop page. This option is perfect for higher priced items.
-
 Customers aren’t able to proceed any payment through does banners.
 
 
