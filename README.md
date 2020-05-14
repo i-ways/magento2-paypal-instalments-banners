@@ -31,7 +31,7 @@ Then add following line to “require” entry in the same file:
 ```
 {
 	"require": {
-		"iways/module-paypal-instalments-banners": “~1.0.0”
+		"iways/module-paypal-instalments-banners": “~1.0.1”
 	}
 }
 ```

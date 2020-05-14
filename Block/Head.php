@@ -24,6 +24,7 @@ namespace Iways\PaypalInstalmentsBanners\Block;
 use Iways\PaypalInstalmentsBanners\Helper\Data;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
+use Magento\Integration\Model\Oauth\Nonce\Generator;
 use Magento\Widget\Block\BlockInterface;
 
 /**
@@ -47,6 +48,7 @@ class Head extends Template implements BlockInterface
      *
      * @param Magento\Framework\View\Element\Template\Context $context
      * @param Iways\PaypalInstalmentsBanners\Helper\Data      $helper
+     * @param Magento\Integration\Model\Oauth\Nonce\Generator $generator
      * @param array                                           $data
      *
      * @return void
@@ -54,9 +56,11 @@ class Head extends Template implements BlockInterface
     public function __construct(
         Context $context,
         Data $helper,
+        Generator $generator,
         array $data = []
     ) {
         $this->_helper = $helper;
+        $this->_generator = $generator;
 
         parent::__construct($context, $data);
     }
@@ -68,6 +72,8 @@ class Head extends Template implements BlockInterface
      */
     protected function _toHtml() // phpcs:ignore PSR2.Methods.MethodDeclaration
     {
-        return '<script src="' . $this->_helper->getSdkUrl() . '"></script>';
+        $nonce = $this->_generator->generateNonce();
+
+        return '<script src="' . $this->_helper->getSdkUrl() . '" data-csp-nonce="' . $nonce  . '"></script>';
     }
 }
