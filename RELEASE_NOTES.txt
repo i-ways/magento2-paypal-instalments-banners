@@ -1,5 +1,7 @@
 ==== 1.0.1 ====
-
+Usability updates
+CSP whitelist
+Code optimization
 
 ==== 1.0.0 ====
 PayPal Instalments Banners is a solution where PayPal offers to your customers the possibility to calculate instalments as individual payment option on every activated shop area. This option is perfect for higher priced items.
