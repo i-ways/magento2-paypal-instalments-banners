@@ -19,8 +19,8 @@ In order to install this module with composer, please edit or create “reposito
 {
 	"repositories": [
 		{
-			"url": "git@github.com:i-ways/magento2-paypal-instalments-banners",
-			"type": "git"
+			"url": "https://github.com/i-ways/magento2-paypal-instalments-banners",
+			"type": "vcs"
 		}
 	]
 }
