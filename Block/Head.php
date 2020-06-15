@@ -37,30 +37,37 @@ use Magento\Widget\Block\BlockInterface;
 class Head extends Template implements BlockInterface
 {
     /**
-     * Protected $_helper
+     * Protected $generator
+     *
+     * @var Magento\Integration\Model\Oauth\Nonce\Generator
+     */
+    protected $generator;
+
+    /**
+     * Protected $helper
      *
      * @var Iways\PaypalInstalmentsBanners\Helper\Data
      */
-    protected $_helper; // phpcs:ignore PSR2.Classes.PropertyDeclaration
+    protected $helper;
 
     /**
      * PayPal Instalments Banner class constructor
      *
      * @param Magento\Framework\View\Element\Template\Context $context
-     * @param Iways\PaypalInstalmentsBanners\Helper\Data      $helper
      * @param Magento\Integration\Model\Oauth\Nonce\Generator $generator
+     * @param Iways\PaypalInstalmentsBanners\Helper\Data      $helper
      * @param array                                           $data
      *
      * @return void
      */
     public function __construct(
         Context $context,
-        Data $helper,
         Generator $generator,
+        Data $helper,
         array $data = []
     ) {
-        $this->_helper = $helper;
-        $this->_generator = $generator;
+        $this->generator = $generator;
+        $this->helper = $helper;
 
         parent::__construct($context, $data);
     }
@@ -72,8 +79,8 @@ class Head extends Template implements BlockInterface
      */
     protected function _toHtml() // phpcs:ignore PSR2.Methods.MethodDeclaration
     {
-        $nonce = $this->_generator->generateNonce();
+        $nonce = $this->generator->generateNonce();
 
-        return '<script src="' . $this->_helper->getSdkUrl() . '" data-csp-nonce="' . $nonce  . '"></script>';
+        return '<script src="' . $this->helper->getSdkUrl() . '" data-csp-nonce="' . $nonce  . '"></script>';
     }
 }
