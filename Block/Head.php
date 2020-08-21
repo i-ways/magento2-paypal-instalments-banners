@@ -81,6 +81,8 @@ class Head extends Template implements BlockInterface
     {
         $nonce = $this->generator->generateNonce();
 
-        return '<script src="' . $this->helper->getSdkUrl() . '" data-csp-nonce="' . $nonce  . '"></script>';
+        return '<script src="' . $this->helper->getSdkUrl() . '" data-csp-nonce="' . $nonce  . '"></script>'
+             . '<script>window.ipib_show_on_checkout = ' . ($this->helper->getShowOnCheckoutFromConfig() ? 1 : 0)
+             . ';</script>';
     }
 }
