@@ -1,3 +1,7 @@
+==== 1.0.2 ====
+CSP updates
+Checkout configuration bug solved
+
 ==== 1.0.1 ====
 Usability updates
 CSP whitelist
