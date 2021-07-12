@@ -19,7 +19,7 @@ class RatioTest extends TestCase
         RATIO_8X1 = '8x1',
         RATIO_20X1 = '20x1';
 
-    public function setUp()
+    public function setUp() : void
     {
 
         $this->ratioObj = new Ratio();

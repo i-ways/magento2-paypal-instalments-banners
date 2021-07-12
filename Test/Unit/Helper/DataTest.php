@@ -28,7 +28,7 @@ class DataTest extends TestCase
 	const SDK_URL = 'https://www.paypal.com/sdk/js';
 
 
-	public function setUp()
+	public function setUp() : void
 	{
 		$this->configMock = $this->getMockBuilder(ScopeConfigInterface::class)
 		->disableOriginalConstructor()

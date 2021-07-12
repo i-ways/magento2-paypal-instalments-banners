@@ -20,7 +20,7 @@ class LogoTest extends TestCase
     protected $resolverMock;
 
 
-    public function setUp()
+    public function setUp() : void
     {
         $this->contextMock = $this->getMockBuilder(Context::class)
         ->disableOriginalConstructor()

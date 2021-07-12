@@ -24,7 +24,7 @@ class HeadTest extends TestCase
     /** @var helper|\PHPUnit_Framework_MockObject_MockObject */
     protected $helperMock;
 
-    public function setUp()
+    public function setUp() : void
     {
         $this->contextMock = $this->getMockBuilder(Context::class)
         ->disableOriginalConstructor()

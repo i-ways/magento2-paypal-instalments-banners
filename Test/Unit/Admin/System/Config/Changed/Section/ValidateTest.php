@@ -46,7 +46,7 @@ class ValidateTest extends TestCase
     /** @var Observer |\PHPUnit_Framework_MockObject_MockObject */
     protected $observerMock;
 
-    public function setUp()
+    public function setUp() : void
     {
         $this->curlMock = $this->getMockBuilder(Curl::class)
             ->disableOriginalConstructor()

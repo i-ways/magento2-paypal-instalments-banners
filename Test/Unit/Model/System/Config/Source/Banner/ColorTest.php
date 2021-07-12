@@ -22,7 +22,7 @@ class ColorTest extends TestCase
         COLOR_BLACK = 'black';
 
 
-    public function setUp()
+    public function setUp() : void
     {
 
         $this->colorObj = new Color();

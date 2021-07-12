@@ -37,7 +37,7 @@ class ConfigProviderTest extends TestCase
 	/** @var Config|\PHPUnit_Framework_MockObject_MockObject */
 	protected $scopeConfigMock;
 
-	public function setUp()
+	public function setUp() : void
 	{
 		$this->contextMock = $this->getMockBuilder(Context::class)
 		->disableOriginalConstructor()
